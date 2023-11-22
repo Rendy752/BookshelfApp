@@ -1,0 +1,946 @@
+html {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  position: relative;
+}
+
+nav {
+  padding: 1rem 4rem 1rem 4rem;
+  border-bottom: 4px solid #808080;
+  background-color: #ffe4c4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+}
+
+.firstNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navItem, .medsosGroup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+}
+
+.navItem > h3, .medsos {
+  text-shadow: 3px 3px 5px #808080;
+  transition: all .5s cubic-bezier(0.4, 0.0, 0.2, 1);
+  padding: 14px;
+  border-radius: 10px;
+}
+
+.navItem > h3:hover, .medsos:hover {
+  transform: translateX(-6px) rotate(1.2deg);
+  background-color: #ffd6a3;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.hamburgerMenu {
+  display: none;
+  transition: all .5s;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.hamburgerMenu:hover {
+  transform: scale(1.2);
+  background-color: #ffd6a3;
+}
+
+.hamburgerMenu span {
+  display: block;
+  width: 30px;
+  height: 4px;
+  margin-bottom: 3px;
+  border-radius: 3px;
+  background-color: #234;
+  cursor: pointer;
+}
+
+.logo {
+  width: 3rem;
+}
+
+.profile {
+  width: 3rem;
+  border-radius: 100%;
+}
+
+.profileContainer {
+  position: relative;
+  display: inline-block;
+}
+
+#profile {
+  text-align: center;
+}
+
+.profileContent {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  right: 0rem;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  border-radius: 1rem;
+  z-index: 1;
+  padding: 0 1rem;
+  background-color: #fcd8bc;
+}
+
+.profileContent > p {
+  padding: 1rem;
+  border-radius: 1rem;
+  transition: all .5s;
+}
+
+.profileContent > p:hover {
+  background-color: #f97d1e;
+}
+
+.profileContainer:hover .profileContent {
+  display: block;
+}
+
+main {
+  display: flex;
+  margin: 0;
+}
+
+.wave {
+  position: absolute;
+  z-index: -1;
+  min-height: 20rem;
+  height: auto;
+}
+
+.content {
+  padding: 4rem;
+  margin-bottom: 3rem;
+}
+
+.caption {
+  text-align: end;
+}
+
+.center {
+  text-align: center;
+}
+
+#content {
+  width: 50vw;
+}
+
+.welcome {
+  display: flex;
+  justify-content: space-between;
+  gap: 10rem;
+}
+
+.character {
+  width: 10rem;
+}
+
+article {
+  text-align: justify;
+  text-justify: inter-word;
+  margin-bottom: 16rem;
+}
+
+#booksSlideContainer {
+  mask-image: linear-gradient(to left,#00000030, #000000 20%, #000000 50%, #00000030 100%);
+  -webkit-mask-image: linear-gradient(to left,#00000030, #000000 20%, #000000 50%, #00000030 100%);
+}
+
+.booksSlideContainer {
+  overflow: hidden;
+}
+
+.booksSlide {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+img {
+  transition: transform .2s;
+}
+
+img:hover {
+  transform: scale(1.3);
+}
+
+#notFound {
+  padding: 3rem;
+}
+
+#notFound:hover {
+  transform: scale(102%);
+}
+
+.booksSlide img {
+  flex-basis: 12%;
+  min-width: 5rem;
+  margin: 1rem;
+  border-radius: 3px;
+  border: 1px solid #000000;
+  box-shadow: 2px 2px 3px #000000;
+}
+
+.slideToLeft img {
+  animation: slideLeft 10s linear infinite;
+}
+
+.slideToRight img {
+  animation: slideRight 10s linear infinite;
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-65rem, 0, 0);
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(65rem, 0, 0);
+  }
+}
+
+#newsletter {
+  margin-bottom: 21rem;
+}
+
+.subscribe {
+  display: flex;
+  gap: 0;
+  justify-content: center;
+}
+
+form {
+  margin: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 3px solid #7c3702;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: #ffe4c4;
+  box-shadow: 2px 2px 3px #7c3702;
+}
+
+label {
+  font-weight: bold;
+  font-size: medium;
+  color: #f97d1e;
+  text-shadow: 1px 1px 1px #000000;
+  transition: color .5s;
+}
+
+label:hover {
+  color: #c35704;
+  cursor: grab;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.input > input {
+  width: inherit;
+}
+
+input {
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  width: 15rem;
+  font-weight: bold;
+  font-size: medium;
+  border: 2px solid #000000;
+  transition: all 1s ease;
+}
+
+input:hover {
+  border: 2px dashed #000;
+}
+
+.checkbox{
+  margin: 1rem 0;
+  display: flex;
+  gap: 1rem;
+}
+
+input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+}
+
+button {
+  background-color: #7c3702;
+  color: #FFFFFF;
+  border-radius: 5px;
+  padding: 8px 15px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #eb9a5c;
+  color: #000;
+  box-shadow: 3px 3px 3px #000000;
+  transform: scale(105%);
+  cursor: pointer;
+  border: 2px solid #000;
+}
+
+button[type="submit"] {
+  background-color: #23a4f4;
+  font-size: medium;
+  color: #000;
+  border: 2px solid #000000;
+}
+
+button[type="submit"]:hover {
+  background-color: #024c79;
+  color: #fff;
+  transform: scale(101%);
+}
+
+#buttonFinished {
+  background-color: #adff2f;
+  height: fit-content;
+  align-self: center;
+}
+
+#buttonFinished:hover {
+  background-color: #67aa03;
+}
+
+#buttonOngoing {
+  background-color: #f5f54f;
+  height: fit-content;
+  align-self: center;
+}
+
+#buttonOngoing:hover {
+  background-color: #b6b62a;
+}
+
+.buttonEdit {
+  background-color: #23a4f4;
+}
+
+.buttonEdit:hover {
+  background-color: #024c79;
+}
+
+.buttonDelete, #buttonYes {
+  background-color: #f92222;
+}
+
+.buttonDelete:hover, #buttonYes:hover {
+  background-color: #bb0303;
+}
+
+.alertContainer {
+  padding-bottom: 1rem;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 3px;
+  border: 2px dashed #b6b62a;
+  background-color: #f5f54f;
+  margin-top: 1rem;
+  text-align: justify;
+}
+
+.alert {
+  color: #f92222;
+}
+
+strong {
+  color: #000;
+}
+
+aside {
+  background-color: #fcd8bc;
+  width: 50vw;
+}
+
+#search {
+  margin: 3rem 0;
+  display: flex;
+}
+
+#search > input {
+  flex-grow: 1;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#buttonSearch {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+#buttonSearch:hover {
+  transform: scale(100%);
+}
+
+#booksHistory {
+  display: flex;
+  border: 3px solid #7c3702;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: #ffe4c4;
+  box-shadow: 2px 2px 3px #7c3702;
+}
+
+#ongoing {
+  width: 50%;
+}
+
+#finished {
+  width: 50%;
+}
+
+#ongoingListBook, #finishedListBook {
+  display: flex;
+  flex-direction: column;
+}
+
+.bookContainer {
+  border: 3px solid #7c3702;
+  border-radius: 5px;
+  padding: 1rem;
+  padding-top: 0;
+  background-color: #fff;
+  box-shadow: 2px 2px 3px #7c3702;
+  margin: 1rem;
+  position: relative;
+}
+
+.bookContainer > h3 {
+  position: absolute;
+  left: -57.5%;
+  top: -37px;
+  padding: 5px 10px;
+  border-radius: 100%;
+  border: 3px solid #7c3702;
+  margin-left: 50%;
+}
+
+h3.ongoingIndex {
+  background-color: #f5f54f;
+}
+
+h3.finishedIndex {
+  background-color: #adff2f;
+}
+
+.bookButton {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+
+.buttonAction {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.myself {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 100%;
+  border: 1px solid #808080;
+  box-shadow: 2px 4px 5px 2px #888888;
+  margin: 1rem 0;
+}
+
+.name {
+  text-shadow: 2px 2px 1px #808080;
+}
+
+hr {
+  height: 3px;
+  background-color: #f97d1e;
+}
+
+.label {
+  background-color: #f97d1e;
+  border-top-right-radius: 100%;
+  border-bottom-right-radius: 100%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  display: inline-block;
+  padding: 1rem;
+  margin-bottom: 5px;
+  border-right: 2px solid #000000;
+  color: #FFFFFF;
+  box-shadow: 5px 5px 5px #000000;
+  font-weight: bold;
+}
+
+.value {
+  display: inline-block;
+  background-color: #ffe4c4;
+  border: 2px solid #f97d1e;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px #f97d1e;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8rem;
+  margin: 0 8rem;
+}
+
+.heading > .menuTitle {
+  font-size: xx-large;
+}
+
+.menuTitle {
+  font-weight: bold;
+  font-size: x-large;
+  color: #f97d1e;
+  text-shadow: 3px 3px 5px #000000;
+  transition: color .5s;
+  text-align: center;
+}
+
+.menuTitle:hover {
+  color: #c35704;
+  cursor: grab;
+}
+
+.book, .discussion {
+  width: 10rem;
+}
+
+.people {
+  width: 5rem;
+  border-radius: 100%;
+  border: 5px solid #000000;
+  box-shadow: 2px 4px 5px 2px #888888;
+}
+
+.cardGroup {
+  display: flex;
+  gap: 14rem 4rem;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+  margin-bottom: 10rem;
+}
+
+.cardContainer:hover .card {
+  transform: rotateX(180deg);
+}
+
+.front, .back {
+	backface-visibility: hidden;
+  position: relative;
+}
+
+.front {
+	transform: rotateY(0deg);
+  text-align: center;
+}
+
+.back {
+	transform: rotateX(180deg);
+}
+
+.back > .cardContent {
+  text-align: end;
+}
+
+h5 {
+  background-color: #7c3702;
+  color: #ffffff;
+  padding: 1rem;
+  border-radius: 5px;
+  border-top-left-radius: 3rem;
+  border-bottom-right-radius: 3rem;
+  box-shadow: 5px 5px 5px #000000;
+  text-align: center;
+  transition: all .5s ease;
+}
+
+.labelBack > h5:hover {
+  transform: scale(1.1);
+}
+
+.cardContainer {
+  flex-basis: 28%;
+}
+
+.card {
+  position: relative;
+  transition: all .5s cubic-bezier(0.4, 0.0, 0.2, 1);
+  transform-style: preserve-3d;
+  transform: perspective(50rem);
+}
+
+.cardContent {
+	transition: .3s;
+  background-color: #f97d1e;
+  position: absolute;
+  top: 3rem;
+  z-index: -1;
+  padding: 2rem;
+  border-radius: 5px;
+  border-top-right-radius: 3rem;
+  border-bottom-left-radius: 3rem;
+  box-shadow: -5px 5px 5px #000000;
+  left: 0;
+  right: 0;
+}
+
+.backContent {
+  padding: 0;
+}
+
+.labelBack {
+  padding: 0 2rem;
+}
+
+#teamMedsosContainer {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem;
+  background-color: #7c3702;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 3rem;
+  gap: 1rem;
+}
+
+.teamMedsos {
+  background-color: #808080;
+  border-radius: 100%;
+  padding: 10px;
+  box-shadow: -2px 2px 5px #000000;
+  transition: all .5s ease;
+}
+
+.teamMedsos:hover {
+  transform: scale(1.1);
+}
+
+.teamMedsos > img {
+  width: 2rem;
+}
+
+footer {
+  border-top: 4px solid #808080;
+  background-color: #ffe4c4;
+}
+
+.waveBottom {
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  margin: 0;
+}
+
+.footerContent {
+  display: flex;
+  padding: 1rem;
+  text-align: center;
+  position: relative;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.medsosGroup {
+  justify-content: center;
+}
+
+.medsos {
+    width: 2rem;
+}
+
+@media only screen and (max-width: 1300px) {
+  .navItem {
+    gap: 1rem;
+  }
+
+  .logoContainer {
+    gap: 1rem;
+  }
+
+  .menu {
+    margin: 0 4rem;
+  }
+
+  .cardContainer {
+    flex-basis: 40%;
+  }
+
+  .welcome {
+    gap: 7rem;
+  }
+
+  @keyframes slideLeft {
+    100% {
+      transform: translate3d(-50rem, 0, 0);
+    }
+  }
+  
+  @keyframes slideRight {
+    100% {
+      transform: translate3d(50rem, 0, 0);
+    }
+  }
+
+  article {
+    margin-bottom: 0;
+  }
+
+  main {
+    flex-direction: column;
+  }
+
+  #content {
+    width: 100vw;
+  }
+
+  aside {
+    width: 80vw;
+    margin: auto;
+    margin-bottom: 11rem;
+    border-radius: 5px;
+    border-top-left-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+    box-shadow: 5px 5px 5px #000000;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .menu {
+    margin: 0 2rem;
+  }
+
+  .welcome {
+    gap: 6rem;
+  }
+
+  #newsletter {
+    margin-bottom: 15rem;
+  }
+
+  @keyframes slideLeft {
+    100% {
+      transform: translate3d(-45rem, 0, 0);
+    }
+  }
+  
+  @keyframes slideRight {
+    100% {
+      transform: translate3d(45rem, 0, 0);
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  nav {
+    display: block;
+    text-align: center;
+  }
+
+  .navItem {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hamburgerMenu {
+    display: block;
+  }
+
+  .profileContent {
+    display: block;
+    position: relative;
+    box-shadow: 0px 8px 16px 0px #00000033;
+    padding: 12px 16px;
+    z-index: 1;
+  }
+
+  .menu {
+    margin: auto;
+  }
+
+  .cardGroup {
+    margin-bottom: 13rem;
+  }
+
+  #newsletter {
+    margin-bottom: 0;
+  }
+
+  .welcome {
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 900px) {
+  #booksHistory {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #ongoing, #finished{
+    width: auto;
+  }
+
+  #ongoing {
+    border: none;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  @keyframes slideLeft {
+    100% {
+      transform: translate3d(-38rem, 0, 0);
+    }
+  }
+  
+  @keyframes slideRight {
+    100% {
+      transform: translate3d(38rem, 0, 0);
+    }
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .caption {
+    text-align: center;
+  }
+
+  .menu >img {
+    order: -1;
+  }
+
+  .book, .discussion {
+    border-bottom: 2px solid #000000;
+  }
+
+  .cardContainer {
+    flex-basis: 50%;
+  }
+
+  .character {
+    display: none;
+  }
+
+  .welcome > div {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .cardContainer {
+    flex-basis: 60%;
+  }
+
+  @keyframes slideLeft {
+    100% {
+      transform: translate3d(-35rem, 0, 0);
+    }
+  }
+  
+  @keyframes slideRight {
+    100% {
+      transform: translate3d(35rem, 0, 0);
+    }
+  }
+
+  aside {
+    margin-bottom: 5rem;
+  }
+
+  .waveBottom {
+    display: none;
+  }
+
+  .medsosGroup {
+    gap: 2rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  @keyframes slideLeft {
+    100% {
+      transform: translate3d(-32rem, 0, 0);
+    }
+  }
+  
+  @keyframes slideRight {
+    100% {
+      transform: translate3d(32rem, 0, 0);
+    }
+  }
+
+  #search > input {
+    width: 5rem;
+    padding: 1rem 8px;
+  }
+
+  .cardContainer {
+    flex-basis: 70%;
+  }
+
+  .teamMedsos > img {
+    width: 24px;
+  }
+
+  .medsosGroup {
+    flex-wrap: wrap;
+    padding: 1rem 5rem;
+    row-gap: 1rem;
+  }
+
+  .medsos {
+    flex-basis: 13%;
+  }
+}

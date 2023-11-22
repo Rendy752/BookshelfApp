@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyBook</title>
+    <link rel="icon" href="assets/images/logo.png">
+    <link rel="stylesheet" href="assets/styles/styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="firstNav">
+                <div class="logoContainer">
+                    <img src="assets/images/logo.png" class="logo" alt="logo">
+                    <h1 class="menuTitle">MyBook</h1>
+                </div>
+                <div class="hamburgerMenu">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+            <div class="navItem" id="navItem">
+                <h3><a href="#">Home</a></h3>
+                <h3><a href="#books">Books</a></h3>
+                <h3><a href="#forum">Forum</a></h3>
+                <h3><a href="#about">About</a></h3>
+                <h3><a href="#team">Team</a></h3>
+                <h3><a href="#newsletter">Newsletter</a></h3>
+                <div class="profileContainer">
+                    <img src="assets/images/profile.png" class="profile" alt="profile">
+                    <div class="profileContent">
+                        <p>Rendy Pratama</p>
+                        <hr>
+                        <p>Setting</p>
+                        <p>Log out</p>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div id="content"> 
+            <article>
+                <img src="assets/images/waveTop.svg" class="wave" alt="waveTop">
+                <div class="content">
+                    <h1 class="menuTitle">Input New Book</h1>
+                    <form id="addBook">
+                        <div class="input">
+                            <label for="title">Title</label>
+                            <input type="text" id="title" placeholder="Book title...">
+                        </div>
+                        <div class="input">
+                            <label for="author">Author</label>
+                            <input type="text" id="author" placeholder="Book author...">
+                        </div>
+                        <div class="input">
+                            <label for="year">Year</label>
+                            <input type="number" id="year" placeholder="Book year...">
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" id="isComplete">
+                            <label for="isComplete">Done reading 👍</label>
+                        </div>
+                        <button type="submit">Add</button>
+                    </form>
+                </div>
+            </article>
+        </div>
+        <aside>
+            <div class="content">
+                <h1 class="menuTitle">Books History</h1>
+                <div id="search">
+                    <input type="text" id="searchInput" placeholder="Search book title...">
+                    <button id="buttonSearch">Search</button>
+                </div>
+                <div id="booksHistory">
+                    <div id="ongoing">
+                        <h1 class="menuTitle">Reading in Progress</h1>
+                        <div id="ongoingListBook">
+                            <!-- mapping -->
+                        </div>
+                    </div>
+                    <div id="finished">
+                        <h1 class="menuTitle">Finished Reading</h1>
+                        <div id="finishedListBook">
+                            <!-- mapping -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </main>
+    <footer>
+        <img src="assets/images/waveBottom.png" class="waveBottom" alt="waveBottom">
+        <div class="footerContent">
+            <div class="medsosGroup" id="medsosGroup">
+                <!-- mapping medsos -->
+            </div>
+            <div>Copyright &copy; 2023 MyBook</div>
+        </div>
+    </footer>
+    <script src="javascript/index.js"></script>
+</body>
+</html>
