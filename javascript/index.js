@@ -16,6 +16,10 @@ class Book {
         localStorage.setItem('books',JSON.stringify(this.books));
     }
 
+    saveDeletedBook(book){
+        localStorage.setItem('deletedBook',JSON.stringify(book));
+    }
+
     loadBook(){
         this.books = JSON.parse(localStorage.getItem('books'));
         renderBooksHistory();
@@ -49,6 +53,7 @@ class Book {
     }
 
     deleteBook(index){
+        this.saveDeletedBook(this.books[index]);
         this.books.splice(index,1);
         this.saveBook();
         renderBooksHistory();
@@ -71,8 +76,10 @@ function isStorageExist() {
 function renderBooksHistory(listBook = JSON.parse(localStorage.getItem('books'))){
     const ongoingListBook=document.getElementById('ongoingListBook');
     const finishedListBook=document.getElementById('finishedListBook');
+    const deletedBookContainer=document.getElementById('deletedListBook');
     ongoingListBook.innerHTML='';
     finishedListBook.innerHTML='';
+    deletedBookContainer.innerHTML='';
     var ongoingIndex = 1; var finishedIndex = 1;
     // const listBook = JSON.parse(localStorage.getItem('books'));
     if (listBook.filter(item => item.isCompleted==false)==0){
@@ -116,7 +123,40 @@ function renderBooksHistory(listBook = JSON.parse(localStorage.getItem('books'))
                 </div>
             </div>
         </div>`,finishedIndex++);
-    })
+    });
+    const deletedBook = JSON.parse(localStorage.getItem('deletedBook'));
+    deletedBook?
+    deletedBookContainer.innerHTML=
+    `<div id="deletedBookContainer" class="bookContainer">
+        <div class="bookData">
+            <h3 id="title">${deletedBook.title} (${deletedBook.isCompleted?'Finished':'Ongoing'})</h3>
+            <p id="author">Author : ${deletedBook.author}</p>
+            <p id="year">Year   : ${deletedBook.year}</p>
+        </div>
+        <div class="buttonActionDeletedBook">
+            <button id="buttonUndo">Undo</button>
+            <button id="buttonTrash">Trash</button>
+        </div>
+    </div>`:null;
+
+    const buttonUndo = document.getElementById('buttonUndo');
+    const buttonTrash = document.getElementById('buttonTrash');
+
+    if(buttonUndo){
+        buttonUndo.addEventListener('click', () => {
+            const deletedBook = JSON.parse(localStorage.getItem('deletedBook'));
+            localStorage.removeItem('deletedBook');
+            book.addBook(deletedBook.title, deletedBook.author, deletedBook.year, deletedBook.isCompleted);
+            renderBooksHistory();
+        })
+    }
+    
+    if(buttonTrash){
+        buttonTrash.addEventListener('click', () => {
+            localStorage.removeItem('deletedBook');
+            renderBooksHistory();
+        })
+    }
 }
 
 const form = document.getElementById('addBook');
@@ -134,18 +174,18 @@ function showEdit(id) {
     const bookDataEdit = document.getElementById(id);
     const selectedBook = book.books.filter(book => book.id===id);
     bookDataEdit.classList.add('borderDashed');
-    bookDataEdit.getElementsByClassName('bookData')[0].innerHTML=`
-    <div class="input">
-    <label for="title">Title</label>
-    <input type="text" class="title" placeholder="Book title..." >
+    bookDataEdit.getElementsByClassName('bookData')[0].innerHTML=
+    `<div class="input">
+        <label for="title">Title</label>
+        <input type="text" class="title" placeholder="Book title..." >
     </div>
     <div class="input">
-    <label for="author">Author</label>
-    <input type="text" class="author" placeholder="Book author..." >
+        <label for="author">Author</label>
+        <input type="text" class="author" placeholder="Book author..." >
     </div>
     <div class="input">
-    <label for="year">Year</label>
-    <input type="number" class="year" min="1900" max="2023" placeholder="Book year..." >
+        <label for="year">Year</label>
+        <input type="number" class="year" min="1900" max="2023" placeholder="Book year..." >
     </div>`;
     const title = bookDataEdit.getElementsByClassName('title')[0];
     const author = bookDataEdit.getElementsByClassName('author')[0];

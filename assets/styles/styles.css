@@ -141,7 +141,6 @@ main {
 
 .content {
   padding: 4rem;
-  margin-bottom: 3rem;
 }
 
 .caption {
@@ -169,7 +168,6 @@ main {
 article {
   text-align: justify;
   text-justify: inter-word;
-  margin-bottom: 16rem;
 }
 
 #booksSlideContainer {
@@ -258,6 +256,7 @@ form {
   padding: 1rem;
   background-color: #ffe4c4;
   box-shadow: 2px 2px 3px #7c3702;
+  transition: all .5s;
 }
 
 label {
@@ -294,7 +293,7 @@ input {
 }
 
 input:hover {
-  border: 2px dashed #000;
+  border-style: dashed;
 }
 
 .checkbox{
@@ -339,13 +338,13 @@ button[type="submit"]:hover {
   transform: scale(101%);
 }
 
-#buttonFinished {
+#buttonFinished, #buttonUndo {
   background-color: #adff2f;
   height: fit-content;
   align-self: center;
 }
 
-#buttonFinished:hover {
+#buttonFinished:hover, #buttonUndo:hover {
   background-color: #67aa03;
 }
 
@@ -367,11 +366,11 @@ button[type="submit"]:hover {
   background-color: #024c79;
 }
 
-.buttonDelete, #buttonYes, button[type="reset"] {
+.buttonDelete, #buttonYes, button[type="reset"], #buttonTrash {
   background-color: #f92222;
 }
 
-.buttonDelete:hover, #buttonYes:hover, button[type="reset"]:hover {
+.buttonDelete:hover, #buttonYes:hover, button[type="reset"]:hover, #buttonTrash:hover {
   background-color: #bb0303;
 }
 
@@ -394,9 +393,22 @@ strong {
   color: #000;
 }
 
+#last {
+  border: 3px solid #7c3702;
+  border-radius: 1rem;
+  padding: 1rem;
+  padding-top: 0;
+  background-color: #ffe4c4;
+  box-shadow: 2px 2px 3px #7c3702;
+  margin: 0 4rem;
+  transition: all .5s;
+  margin-bottom: 12rem;
+}
+
 aside {
   background-color: #fcd8bc;
   width: 50vw;
+  padding-bottom: 8rem;
 }
 
 #search {
@@ -450,6 +462,18 @@ aside {
   box-shadow: 2px 2px 3px #7c3702;
   margin: 1rem;
   position: relative;
+  transition: all .5s;
+}
+
+#deletedBookContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bookContainer:hover, form:hover, #last:hover {
+  transform: scale(102%);
+  box-shadow: 0 0 15px 3px #7c3702;
 }
 
 .borderDashed {
@@ -752,8 +776,13 @@ footer {
     width: 100vw;
   }
 
+  #last {
+    margin: auto;
+    margin-bottom: 6rem;
+  }
+
   .content {
-    width: 70%;
+    width: 80%;
     margin: auto;
   }
 
@@ -765,6 +794,7 @@ footer {
     border-top-left-radius: 5rem;
     border-bottom-right-radius: 5rem;
     box-shadow: 5px 5px 5px #000000;
+    padding-bottom: 0;
   }
 }
 
@@ -849,7 +879,7 @@ footer {
   }
 
   .content {
-    width: 80%;
+    width: 70%;
   }
 }
 
@@ -912,6 +942,10 @@ footer {
     100% {
       transform: translate3d(35rem, 0, 0);
     }
+  }
+
+  #deletedBookContainer {
+    flex-direction: column;
   }
 
   aside {
