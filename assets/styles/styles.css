@@ -309,8 +309,8 @@ input[type="checkbox"] {
 }
 
 button {
-  background-color: #7c3702;
-  color: #FFFFFF;
+  background-color: #eb9a5c;
+  color: #000;
   border-radius: 5px;
   padding: 8px 15px;
   font-weight: bold;
@@ -318,8 +318,8 @@ button {
 }
 
 button:hover {
-  background-color: #eb9a5c;
-  color: #000;
+  background-color: #7c3702;
+  color: #fff;
   box-shadow: 3px 3px 3px #000000;
   transform: scale(105%);
   cursor: pointer;
@@ -367,11 +367,11 @@ button[type="submit"]:hover {
   background-color: #024c79;
 }
 
-.buttonDelete, #buttonYes {
+.buttonDelete, #buttonYes, button[type="reset"] {
   background-color: #f92222;
 }
 
-.buttonDelete:hover, #buttonYes:hover {
+.buttonDelete:hover, #buttonYes:hover, button[type="reset"]:hover {
   background-color: #bb0303;
 }
 
@@ -452,6 +452,10 @@ aside {
   position: relative;
 }
 
+.borderDashed {
+  border-style: dashed;
+}
+
 .bookContainer > h3 {
   position: absolute;
   left: -57.5%;
@@ -468,6 +472,12 @@ h3.ongoingIndex {
 
 h3.finishedIndex {
   background-color: #adff2f;
+}
+
+.buttonFormAdd {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
 }
 
 .bookButton {
@@ -742,6 +752,11 @@ footer {
     width: 100vw;
   }
 
+  .content {
+    width: 70%;
+    margin: auto;
+  }
+
   aside {
     width: 80vw;
     margin: auto;
@@ -831,6 +846,10 @@ footer {
 
   #ongoing {
     border: none;
+  }
+
+  .content {
+    width: 80%;
   }
 }
 

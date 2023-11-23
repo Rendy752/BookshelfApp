@@ -68,13 +68,13 @@ function isStorageExist() {
     return (typeof (Storage) === undefined)?false:true;
 }
 
-function renderBooksHistory(){
+function renderBooksHistory(listBook = JSON.parse(localStorage.getItem('books'))){
     const ongoingListBook=document.getElementById('ongoingListBook');
     const finishedListBook=document.getElementById('finishedListBook');
     ongoingListBook.innerHTML='';
     finishedListBook.innerHTML='';
     var ongoingIndex = 1; var finishedIndex = 1;
-    const listBook = JSON.parse(localStorage.getItem('books'));
+    // const listBook = JSON.parse(localStorage.getItem('books'));
     if (listBook.filter(item => item.isCompleted==false)==0){
         ongoingListBook.innerHTML+='<img id="notFound" src="assets/images/noResults.gif" alt="no results">'
     }
@@ -130,8 +130,10 @@ form.addEventListener('submit', (e) => {
 });
 
 function showEdit(id) {
+    renderBooksHistory();
     const bookDataEdit = document.getElementById(id);
     const selectedBook = book.books.filter(book => book.id===id);
+    bookDataEdit.classList.add('borderDashed');
     bookDataEdit.getElementsByClassName('bookData')[0].innerHTML=`
     <div class="input">
     <label for="title">Title</label>
@@ -143,7 +145,7 @@ function showEdit(id) {
     </div>
     <div class="input">
     <label for="year">Year</label>
-    <input type="number" class="year" placeholder="Book year..." >
+    <input type="number" class="year" min="1900" max="2023" placeholder="Book year..." >
     </div>`;
     const title = bookDataEdit.getElementsByClassName('title')[0];
     const author = bookDataEdit.getElementsByClassName('author')[0];
@@ -169,6 +171,7 @@ function showEdit(id) {
 }
 
 function showConfirmation(id) {
+    renderBooksHistory();
     const bookDataDelete = document.getElementById(id);
     const selectedBook = book.books.filter(book => book.id===id);
     const indexSelectedBook = book.books.findIndex(book => book.id===selectedBook[0].id);
@@ -183,3 +186,25 @@ function showConfirmation(id) {
         </div>
     </div>`
 }
+
+function searchBook(criteria) {
+    // console.log(criteria);
+    // console.log(localStorage.getItem('books'));
+    const listBook = JSON.parse(localStorage.getItem('books'));
+    console.log(listBook.filter((item => item.title.includes(criteria))));
+    const selectedBook = listBook.filter((item => item.title.toLowerCase().includes(criteria.toLowerCase())));
+    console.log(selectedBook);
+    renderBooksHistory(selectedBook);
+}
+
+document.getElementById('buttonSearch').addEventListener('click', () => {
+    const criteria = document.getElementById('searchInput').value;
+    searchBook(criteria);
+})
+
+document.getElementById('searchInput').addEventListener('keypress', e => {
+    if (e.key === 'Enter') {
+        const criteria = document.getElementById('searchInput').value;
+        searchBook(criteria);
+    }
+});

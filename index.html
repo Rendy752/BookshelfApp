@@ -48,21 +48,24 @@
                     <form id="addBook">
                         <div class="input">
                             <label for="title">Title</label>
-                            <input type="text" id="title" placeholder="Book title...">
+                            <input type="text" id="title" placeholder="Book title..." required>
                         </div>
                         <div class="input">
                             <label for="author">Author</label>
-                            <input type="text" id="author" placeholder="Book author...">
+                            <input type="text" id="author" placeholder="Book author..." required>
                         </div>
                         <div class="input">
                             <label for="year">Year</label>
-                            <input type="number" id="year" placeholder="Book year...">
+                            <input type="number" id="year" placeholder="Book year..." min="1900" max="2023" required>
                         </div>
                         <div class="checkbox">
                             <input type="checkbox" id="isComplete">
                             <label for="isComplete">Done reading 👍</label>
                         </div>
-                        <button type="submit">Add</button>
+                        <div class="buttonFormAdd">
+                            <button type="reset">Clear</button>
+                            <button type="submit">Add</button>
+                        </div>
                     </form>
                 </div>
             </article>
