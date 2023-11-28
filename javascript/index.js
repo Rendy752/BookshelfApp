@@ -31,7 +31,7 @@ class Book {
             id: +new Date(),
             title: title,
             author: author,
-            year: year,
+            year: parseInt(year),
             isComplete: isComplete
         }
         this.books.push(book);
@@ -48,7 +48,7 @@ class Book {
     editBook(index, newTitle, newAuthor, newYear){
         this.books[index].title = newTitle;
         this.books[index].author = newAuthor;
-        this.books[index].year = newYear;
+        this.books[index].year = parseInt(newYear);
         this.saveBook();
         renderBooksHistory();
     }
